@@ -325,10 +325,10 @@ export default function AMRQuiz() {
                 : "Great learning opportunity! Review the scientific explanations above to reinforce your antibiotic literacy."}
             </p>
             <a
-              href="#pledge"
+              href="#action-guide"
               className="inline-flex items-center space-x-2 px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-400 to-amber-300 text-slate-950 font-bold text-xs uppercase tracking-wider shadow-glow-cyan transition-all hover:opacity-95"
             >
-              <span>Seal Your Knowledge with the AMR Pledge</span>
+              <span>Explore the Community Action Guide</span>
               <ChevronRight className="w-4 h-4" />
             </a>
           </motion.div>

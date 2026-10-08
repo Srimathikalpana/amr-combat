@@ -1,13 +1,9 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { ShieldAlert, Activity, Menu, X, HeartHandshake } from "lucide-react";
+import { ShieldAlert, Activity, Menu, X, Shield } from "lucide-react";
 
-interface NavbarProps {
-  onOpenPledge: () => void;
-}
-
-export default function Navbar({ onOpenPledge }: NavbarProps) {
+export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -22,7 +18,6 @@ export default function Navbar({ onOpenPledge }: NavbarProps) {
   const navLinks = [
     { name: "Overview", href: "#overview" },
     { name: "Key Concepts", href: "#key-concepts" },
-    { name: "Take the AMR Pledge", href: "#pledge" },
     { name: "Quiz", href: "#quiz" },
     { name: "Action Guide", href: "#action-guide" },
   ];
@@ -93,11 +88,9 @@ export default function Navbar({ onOpenPledge }: NavbarProps) {
           <div className="hidden sm:flex items-center space-x-3">
             <button
               onClick={() => {
-                const target = document.querySelector("#pledge");
+                const target = document.querySelector("#action-guide");
                 if (target) {
                   target.scrollIntoView({ behavior: "smooth" });
-                } else {
-                  onOpenPledge();
                 }
               }}
               className="relative inline-flex items-center justify-center px-4 py-2 text-xs font-extrabold text-slate-950 bg-gradient-to-r from-cyan-400 via-amber-300 to-cyan-400 rounded-xl hover:from-cyan-300 hover:to-amber-200 shadow-glow-cyan transition-all group overflow-hidden"
@@ -136,7 +129,7 @@ export default function Navbar({ onOpenPledge }: NavbarProps) {
                 key={link.name}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="block px-4 py-2.5 text-sm font-medium text-slate-300 hover:text-teal-300 hover:bg-slate-800/60 rounded-xl transition-colors"
+                className="block px-4 py-2.5 text-sm font-medium text-slate-300 hover:text-cyan-300 hover:bg-slate-800/60 rounded-xl transition-colors"
               >
                 {link.name}
               </a>
@@ -145,12 +138,15 @@ export default function Navbar({ onOpenPledge }: NavbarProps) {
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
-                  onOpenPledge();
+                  const target = document.querySelector("#action-guide");
+                  if (target) {
+                    target.scrollIntoView({ behavior: "smooth" });
+                  }
                 }}
-                className="w-full flex items-center justify-center space-x-2 py-3 px-4 rounded-xl bg-gradient-to-r from-teal-400 to-emerald-400 text-slate-950 font-bold text-xs tracking-wide shadow-glow-teal"
+                className="w-full flex items-center justify-center space-x-2 py-3 px-4 rounded-xl bg-gradient-to-r from-cyan-400 to-amber-300 text-slate-950 font-bold text-xs tracking-wide shadow-glow-cyan"
               >
-                <HeartHandshake className="w-4 h-4" />
-                <span>Join the Combat</span>
+                <Shield className="w-4 h-4" />
+                <span>Armour Up! (உடை அணிவீர்!)</span>
               </button>
             </div>
           </div>
